@@ -34,11 +34,7 @@ button.on("click", function () {
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
 
-  console.log(inputValue);
-
   var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
-
-  console.log(filteredData);
 
   // Empty the table data before query
   d3.select("tbody").html("");
@@ -72,11 +68,7 @@ d3.select('form').on('submit', function () {
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
 
-  console.log(inputValue);
-
   var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
-
-  console.log(filteredData);
 
   // Empty the table data before query
   d3.select("tbody").html("");
