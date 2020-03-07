@@ -98,22 +98,45 @@ function getData() {
   // Assign the value of the dropdown menu option to a variable
   var term = dropdownMenu.property("value");
 
+  // Change the search description once the dropdown is clicked
+  const areaSelect = document.querySelector(`[id="selFilterQuery"]`);
+
+  areaSelect.addEventListener(`change`, (e) => {
+    // log(`e.target`, e.target);
+    const select = e.target;
+
+    const value = select.value;
+
+    const text = select.selectedOptions[0].text;
+
+    d3.select("#SearchTerm").text("Enter a " + text);
+
+    // Change the placeholder according to dropdown option
+    if (text == 'Date') {
+      document.getElementById("term").placeholder = "1/10/2010";
+    }
+
+    else if (text == 'City') {
+      document.getElementById("term").placeholder = "cary";
+    }
+
+    else if (term == 'State') {
+      document.getElementById("term").placeholder = "nc";
+    }
+
+    else if (term == 'Country') {
+      document.getElementById("term").placeholder = "us";
+    }
+
+    else if (term == 'Shape') {
+      document.getElementById("term").placeholder = "circle";
+    }
+
+  });
+
   clickButton(term);
 
 };
-
-// Change the search description once the dropdown is clicked
-const areaSelect = document.querySelector(`[id="selFilterQuery"]`);
-
-areaSelect.addEventListener(`change`, (e) => {
-  // log(`e.target`, e.target);
-  const select = e.target;
-  const value = select.value;
-  const text = select.selectedOptions[0].text;
-  d3.select("#SearchTerm").text("Enter a " + text);
-
-});
-
 
 
 init();
