@@ -62,6 +62,7 @@ button.on("click", function () {
 
 });
 
+
 d3.select('form').on('submit', function () {
   d3.event.preventDefault() /* Stops it from refreshing page */
 
@@ -96,5 +97,5 @@ d3.select('form').on('submit', function () {
     });
 
   });
-  
+
 })
